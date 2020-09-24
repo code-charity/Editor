@@ -1,0 +1,24 @@
+body {
+    font: 400 1rem sans-serif;
+    box-sizing: border-box;
+    padding: 16px;
+    color: #3d4853;
+    background: #fff
+}
+
+::selection {
+    background: #f1f4f8
+}
+
+.satus-text-field {
+    padding: 16px;
+    resize: none;
+    border: 1px dashed #becbd9
+}
+
+.satus-text {
+    font-size: 18px;
+    line-height: 18px;
+    display: block;
+    margin: 16px 0 0
+}
