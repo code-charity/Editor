@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/victor-savinov/string-length">
-        <img src="https://github.com/victor-savinov/string-length/blob/master/icons/128.png">
+        <img src="https://github.com/victor-savinov/icons/blob/master/string-length/raised-128.png">
     </a>
 </p>
 
