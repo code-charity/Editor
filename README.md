@@ -4,10 +4,8 @@
     </a>
 </p>
 
-<h3 align="center">String length</h3>
+<h3 align="center">Text Editor</h3>
 
 <p align="center">
-    Text length & byte counter.
-    <br>
-    <a href="https://chrome.google.com/webstore/detail/string-length/bnbgafdjiinlgnjaedmfaablklnafpka">Get Started »</a>
+    Text editor for use with [Chrome](https://chrome.google.com/webstore/detail/string-length/bnbgafdjiinlgnjaedmfaablklnafpka).
 </p>

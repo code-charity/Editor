@@ -1,8 +1,26 @@
 {
     "bytes": {
-        "message": "байт"
+        "message": "Bytes"
     },
     "characters": {
-        "message": "символ"
+        "message": "Characters"
+    },
+    "column": {
+        "message": "Column"
+    },
+    "file": {
+        "message": "File"
+    },
+    "line": {
+        "message": "Line"
+    },
+    "newFile": {
+        "message": "New file"
+    },
+    "quit": {
+        "message": "Quit"
+    },
+    "saveAs": {
+        "message": "Save as..."
     }
 }

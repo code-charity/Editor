@@ -1,39 +1,152 @@
-function improveMessage(message, length, language) {
-    var last_char = Number(String(length).slice(-1));
+/*--------------------------------------------------------------
+>>> TEXT EDITOR
+----------------------------------------------------------------
+# 
+--------------------------------------------------------------*/
 
-    if (language === 'en') {
-        if (last_char != 1) {
-            message += 's';
+/*--------------------------------------------------------------
+# 
+--------------------------------------------------------------*/
+
+var skeleton = {
+    component: 'base',
+
+    menubar: {
+        component: 'menubar',
+        items: [
+            [{
+                    component: 'button',
+                    text: 'file'
+                },
+                {
+                    component: 'button',
+                    text: 'newFile'
+                },
+                {
+                    component: 'button',
+                    text: 'saveAs'
+                },
+                {
+                    component: 'button',
+                    text: 'quit'
+                }
+            ]
+        ]
+    },
+    main: {
+        component: 'main',
+
+        textarea: {
+            component: 'textarea',
+            on: {
+                input: function () {
+                    var section_align_end = skeleton.footer.section_align_end,
+                        characters = this.value.length,
+                        bytes = new Blob([this.value]).size;
+
+                    section_align_end.characters.value.rendered.textContent = characters;
+                    section_align_end.bytes.value.rendered.textContent = bytes;
+                },
+                selectionchange: function () {
+                    var textarea = skeleton.main.textarea.rendered,
+                        section_align_start = skeleton.footer.section_align_start,
+                        column = 0;
+
+                    if (textarea.selectionDirection === 'forward') {
+                        var column = textarea.selectionEnd;
+                    } else {
+                        var column = textarea.selectionStart;
+                    }
+
+                    var lines = textarea.value.substr(0, column).split('\n');
+
+                    section_align_start.line.value.rendered.textContent = lines.length;
+                    section_align_start.column.value.rendered.textContent = lines[lines.length - 1].length + 1;
+                }
+            }
         }
-    } else if (language === 'ru') {
-        if (last_char < 1 || last_char > 4 || [11, 12, 13, 14].indexOf(length) !== -1) {
-            message += 'ов';
-        } else if (last_char > 1 && last_char < 5) {
-            message += 'а';
-        }
-    }
-    
-    return message;
-}
+    },
+    footer: {
+        component: 'footer',
 
-satus.locale.import(function(language) {
-    var characters = satus.locale.getMessage('characters'),
-        bytes = satus.locale.getMessage('bytes');
+        section_align_start: {
+            component: 'section',
+            variant: 'align-start',
 
-    satus.render({
-        text_field: {
-            type: 'text-field',
-            rows: 8,
-            oninput: function() {
-                var blob = new Blob([this.value]).size,
-                    length = this.value.length;
+            line: {
+                component: 'span',
 
-                document.querySelector('.satus-text').innerText = length + ' ' + improveMessage(characters, length, language) + ', ' + blob + ' ' + improveMessage(bytes, blob, language);
+                label: {
+                    component: 'span',
+                    text: 'line'
+                },
+                value: {
+                    component: 'span',
+                    text: '0'
+                }
+            },
+            column: {
+                component: 'span',
+
+                label: {
+                    component: 'span',
+                    text: 'column'
+                },
+                value: {
+                    component: 'span',
+                    text: '0'
+                }
             }
         },
-        text: {
-            type: 'text',
-            innerText: '0 ' + improveMessage(characters, 0, language) + ', 0 ' + improveMessage(bytes, 0, language)
+        section_align_end: {
+            component: 'section',
+            variant: 'align-end',
+
+            characters: {
+                component: 'span',
+
+                label: {
+                    component: 'span',
+                    text: 'characters'
+                },
+                value: {
+                    component: 'span',
+                    text: '0'
+                }
+            },
+            bytes: {
+                component: 'span',
+
+                label: {
+                    component: 'span',
+                    text: 'bytes'
+                },
+                value: {
+                    component: 'span',
+                    text: '0'
+                }
+            }
         }
+    }
+};
+
+
+/*--------------------------------------------------------------
+# INITIALIZATION
+--------------------------------------------------------------*/
+
+satus.storage.import(function (items) {
+    var language = items.language || window.navigator.language;
+
+    if (language.indexOf('en') === 0) {
+        language = 'en';
+    }
+
+    satus.fetch('_locales/' + language + '/messages.json', function (object) {
+        for (var key in object) {
+            satus.locale.strings[key] = object[key].message;
+        }
+
+        satus.render(skeleton);
     });
 });

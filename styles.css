@@ -1,24 +1,66 @@
-body {
-    font: 400 1rem sans-serif;
+/*--------------------------------------------------------------
+>>> TEXT EDITOR
+----------------------------------------------------------------
+# Base
+# Main
+# Footer
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# BASE
+--------------------------------------------------------------*/
+
+.satus-base {
+    --satus-menubar-background: #1a1f23;
+    --satus-menubar-text: #6e7377;
+    --satus-main-background: #2f3841;
+}
+
+
+/*--------------------------------------------------------------
+# MAIN
+--------------------------------------------------------------*/
+
+.satus-main {
+    flex: 1;
+}
+
+.satus-textarea {
+    font: inherit;
     box-sizing: border-box;
-    padding: 16px;
-    color: #3d4853;
-    background: #fff
-}
-
-::selection {
-    background: #f1f4f8
-}
-
-.satus-text-field {
-    padding: 16px;
+    width: 100%;
+    height: 100%;
+    padding: 4px 0;
     resize: none;
-    border: 1px dashed #becbd9
+    color: #d8dee9;
+    border: none;
+    outline: none;
+    background: transparent;
 }
 
-.satus-text {
-    font-size: 18px;
-    line-height: 18px;
-    display: block;
-    margin: 16px 0 0
+
+/*--------------------------------------------------------------
+# FOOTER
+--------------------------------------------------------------*/
+
+.satus-footer {
+    font-size: 14px;
+    display: flex;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0 8px;
+    color: #6e7377;
+    background: #1a1f23;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.satus-footer .satus-section> :not(:last-child)::after {
+    margin: 0 4px 0 0;
+    content: ',';
+}
+
+.satus-footer .satus-section>*> :not(:last-child)::after {
+    margin: 0 4px 0 0;
+    content: ':';
 }
