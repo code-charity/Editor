@@ -7,5 +7,5 @@
 <h3 align="center">Text Editor</h3>
 
 <p align="center">
-    Text editor for use with <a href="https://chrome.google.com/webstore/detail/string-length/bnbgafdjiinlgnjaedmfaablklnafpka">Chrome</a>.
+    Extension for use with <a href="https://chrome.google.com/webstore/detail/string-length/bnbgafdjiinlgnjaedmfaablklnafpka">Chrome</a>.
 </p>
