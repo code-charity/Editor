@@ -1,1 +1,71 @@
-{}
+{
+    "areYouSureYouWantToDeleteTheFile": {
+        "message": "Are you sure you want to delete the file?"
+    },
+    "bytes": {
+        "message": "Bytes"
+    },
+    "cancel": {
+        "message": "Cancel"
+    },
+    "characters": {
+        "message": "characters"
+    },
+    "closeFile": {
+        "message": "Close file"
+    },
+    "column": {
+        "message": "Column"
+    },
+    "delete": {
+        "message": "Delete"
+    },
+    "deleteFile": {
+        "message": "Delete file"
+    },
+    "edit": {
+        "message": "Edit"
+    },
+    "file": {
+        "message": "File"
+    },
+    "help": {
+        "message": "Help"
+    },
+    "line": {
+        "message": "Line"
+    },
+    "lines": {
+        "message": "lines"
+    },
+    "newFile": {
+        "message": "New file"
+    },
+    "openFile": {
+        "message": "Open file..."
+    },
+    "quit": {
+        "message": "Quit"
+    },
+    "redo": {
+        "message": "Redo"
+    },
+    "rename": {
+        "message": "Rename"
+    },
+    "reportABug": {
+        "message": "Report a bug"
+    },
+    "save": {
+        "message": "Save"
+    },
+    "saveAs": {
+        "message": "Save as..."
+    },
+    "selected": {
+        "message": "selected"
+    },
+    "undo": {
+        "message": "Undo"
+    }
+}

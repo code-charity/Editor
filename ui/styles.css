@@ -1,0 +1,134 @@
+/*--------------------------------------------------------------
+>>> TEXT EDITOR
+----------------------------------------------------------------
+# Body
+# Menubar
+# Textarea
+# Footer
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# BODY
+--------------------------------------------------------------*/
+
+body {
+    --satus-contrast: 255, 255, 255;
+    --satus-menubar-background: #1a1f23;
+    --satus-menubar-text: #8a8f93;
+    --satus-menubar-hover: rgba(var(--satus-contrast), .1);
+    --satus-textarea-background: #2f3841;
+    --satus-textarea-color: #d8dee9;
+    --satus-footer-background: #1a1f23;
+    --satus-footer-text: #8a8f93;
+    --satus-main-background: #1a1f23;
+    --satus-main-text: #8a8f93;
+    --satus-modal-background: #1a1f23;
+    --satus-modal-text: #d8dee9;
+    --satus-text-field--background: #23292f;
+    --satus-text-field--border: #272e35;
+    --satus-text-field--text: #d8dee9;
+}
+
+
+/*--------------------------------------------------------------
+# MENUBAR
+--------------------------------------------------------------*/
+
+.satus-menubar {
+    z-index: 1;
+}
+
+
+/*--------------------------------------------------------------
+# SIDEBAR
+--------------------------------------------------------------*/
+
+.satus-sidebar {
+    width: 16px;
+    background: #1e2429;
+    overflow: hidden;
+    transition: 200ms;
+}
+
+.satus-sidebar.empty {
+    width: 0;
+}
+
+.page .satus-sidebar:not(.empty) {
+    width: 256px;
+}
+
+.satus-sidebar:hover {
+    width: 256px;
+}
+
+.satus-sidebar .satus-h1 {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 8px 16px;
+    text-transform: uppercase;
+}
+
+.satus-sidebar .satus-ul {
+    display: block;
+    padding: 0;
+    list-style: none;
+}
+
+.satus-sidebar li {
+    display: block;
+    font-size: 14px;
+    padding: 4px 16px;
+}
+
+.satus-sidebar li.selected {
+    background: rgba(255,255,255,.05);
+}
+
+.satus-sidebar li:hover {
+    background: rgba(var(--satus-contrast), .1);
+    cursor: pointer;
+}
+
+
+/*--------------------------------------------------------------
+# TEXTAREA
+--------------------------------------------------------------*/
+
+.satus-main {
+    flex: 1;
+    display: flex;
+}
+
+.satus-textarea {
+    padding: 4px 0;
+    flex: 1;
+}
+
+
+/*--------------------------------------------------------------
+# FOOTER
+--------------------------------------------------------------*/
+
+.satus-footer {
+    font-size: 14px;
+    display: flex;
+    box-sizing: border-box;
+    height: 32px;
+    padding: 0 8px;
+    color: var(--satus-footer-text);
+    background: var(--satus-footer-background);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.satus-footer .satus-section> :not(:last-child)::after {
+    margin: 0 4px 0 0;
+    content: ',';
+}
+
+.satus-footer .satus-section>*> :not(:last-child)::after {
+    margin: 0 4px 0 0;
+    content: ' ';
+}
